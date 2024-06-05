@@ -1,0 +1,147 @@
+﻿@model HMS6.Models.Patient
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div class="alert alert-dismissible alert-primary">
+    <h4>@Html.DisplayFor(model => model.PatientName)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Id :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PatientId)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Gender :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Date Of Birth :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+             Contact Number :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ContactNumber)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Blood Type :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BloodType)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Address :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Patient Case :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PatientCase)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Time In :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TimeIn)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Time Out :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TimeOut)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Departement :
+        </dt>
+        <dd class = "col-sm-10">
+           {@Html.DisplayFor(model => model.Dep.DepartementId)} @Html.DisplayFor(model => model.Dep.DepartementName)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Doctor :
+        </dt>
+        <dd class = "col-sm-10">
+            {@Html.DisplayFor(model => model.Doc.DoctorId)} @Html.DisplayFor(model => model.Doc.DoctorName)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Room :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Room.RoomId)
+        </dd>
+        <hr />
+         <dt class = "col-sm-2">
+            Appointments :
+        </dt>
+        <dd class = "col-sm-10">
+            @foreach (var appointment in Model.Appointments)
+            {    
+                    <th>
+                         { @Html.DisplayFor(modelAppointment => appointment.AppointmentDate) }  
+                    </th>
+            } 
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+             Diagnosis :
+        </dt>
+        <dd class = "col-sm-10">
+            @foreach (var medicalHistory in Model.MedicalHistories)
+            {    
+                   <th>
+                         { @Html.DisplayFor(modelMedicalHistory => medicalHistory.Diagnosis) }  
+                   </th>
+            } </dd>
+            <hr />
+        <dt class = "col-sm-2">
+             Date Of Visit :
+        </dt>
+        <dd class = "col-sm-10">
+            @foreach (var medicalHistory in Model.MedicalHistories)
+            {    
+                  <th>
+                      { @Html.DisplayFor(modelMedicalHistory => medicalHistory.DateOfVisitPatToDoc) }  
+                  </th>
+            } </dd>
+            <hr />
+        <dt class = "col-sm-2">
+             Follow Up Date :
+        </dt>
+        <dd class = "col-sm-10">
+            @foreach (var medicalHistory in Model.MedicalHistories)
+            {    
+                      <th>
+                          { @Html.DisplayFor(modelMedicalHistory => medicalHistory.FollowUpDate) }  
+                      </th>
+            } </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.PatientId">Edit</a> |
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>

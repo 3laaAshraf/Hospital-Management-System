@@ -1,0 +1,35 @@
+﻿@model IEnumerable<HMS6.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="_Notification"/>
+<h1>Appointment List</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New</a>
+</p>
+   
+@foreach (var item in Model) {
+        <div class="alert alert-dismissible alert-primary">
+           <dl class="row">
+
+               <dt class = "col-sm-2">Appointment Date</dt>              
+               <dd class = "col-sm-10">@Html.DisplayFor(modelItem => item.AppointmentDate)</dd>
+               <hr>
+               <dt class = "col-sm-2">Doctor</dt>
+               <dd class = "col-sm-10">@Html.DisplayFor(modelItem => item.Doc.DoctorName)</dd>
+               <hr>
+               <dt class = "col-sm-2">Patient</dt>
+               <dd class = "col-sm-10">@Html.DisplayFor(modelItem => item.Pat.PatientName)</dd>
+                <hr>
+               <dd class = "col-sm-10">
+               <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.AppointmentId">Edit</a>            
+               </dd>   
+              
+          </dl>
+       </div>
+}
+

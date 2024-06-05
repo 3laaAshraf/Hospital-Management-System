@@ -1,0 +1,43 @@
+﻿@model HMS6.Models.Appointment
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div class="alert alert-dismissible alert-primary">
+    <h4>Appointment</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Date :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AppointmentDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Status :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AppointmentsStatus)
+        </dd>
+        <dt class = "col-sm-2">
+            Doctor :
+        </dt>
+        <dd class = "col-sm-10">
+            {@Html.DisplayFor(model => model.Doc.DoctorId)} @Html.DisplayFor(model => model.Doc.DoctorName)
+        </dd>
+        <dt class = "col-sm-2">
+            Patient :
+        </dt>
+        <dd class = "col-sm-10">
+            {@Html.DisplayFor(model => model.Pat.PatientId)} @Html.DisplayFor(model => model.Pat.PatientName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.AppointmentId">Edit</a> |
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>

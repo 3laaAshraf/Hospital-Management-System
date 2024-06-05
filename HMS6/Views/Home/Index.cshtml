@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="alert alert-dismissible alert-primary">
+    <h1 class="alert-heading">Welcome A Hospital Management Syatem</h1>
+    <p>A management system is a structured framework designed to efficiently and effectively coordinate and control an organization's resources, activities, and processes to achieve its goals and objectives. It encompasses a set of principles, policies, procedures, and tools that guide decision-making, planning, and implementation across various levels of an organization. A well-designed management system helps streamline communication, optimize resource allocation, and enhance overall organizational performance. It typically includes elements such as strategic planning, performance measurement, risk management, and continuous improvement. Whether applied in the context of quality management, project management, or broader organizational governance, a robust management system provides a roadmap for leaders and employees to navigate challenges, make informed decisions, and foster a culture of accountability and innovation within the organization.</p>
+
+</div>
+@if (SignInManager.IsSignedIn(User))
+{
+            <div style ="width : 600px;display: inline-block;margin: 20px; " class="alert alert-dismissible alert-dark">
+        <h1>Doctor</h1>
+            <a class="btn btn-success" asp-area="" asp-controller="Doctors" asp-action="Create">Add New  </a>
+        <a class="btn btn-primary" asp-area="" asp-controller="Doctors" asp-action="Index">View List  </a>
+    </div>
+
+                <div style ="width : 600px; display: inline-block;margin: 20px; " class="alert alert-dismissible alert-info">
+            <h1>Patient</h1>
+                <a class="btn btn-success" asp-area="" asp-controller="Patients" asp-action="Create">Add New  </a>
+            <a class="btn btn-primary" asp-area="" asp-controller="Patients" asp-action="Index">View List  </a>
+        </div>
+
+                        <div style ="width : 600px; display: inline-block;margin: 20px; " class="alert alert-dismissible alert-success">
+                <h1> Nurses</h1>
+                            <a class="btn btn-success" asp-area="" asp-controller="Nurses" asp-action="Create">Add New  </a>
+
+            <a class="btn btn-primary" asp-area="" asp-controller="Nurses" asp-action="Index">View List  </a>
+        </div>
+                 <div style ="width : 600px;display: inline-block;margin: 20px; " class="alert alert-dismissible alert-primary">
+                <h1>Appointment</h1>
+                            <a class="btn btn-success" asp-area="" asp-controller="Appointments" asp-action="Create">Add New  </a>
+
+            <a class="btn btn-primary" asp-area="" asp-controller="Appointments" asp-action="Index">View List  </a>
+        </div>
+
+                        <div style ="width : 600px; display: inline-block;margin: 20px; " class="alert alert-dismissible alert-warning">
+                    <h1>Medical History</h1>
+                        <a class="btn btn-success" asp-area="" asp-controller="MedicalHistories" asp-action="Create">Add New  </a>
+
+                    <a class="btn btn-primary" asp-area="" asp-controller="MedicalHistories" asp-action="Index">View List  </a>
+            </div>
+
+                        <div style ="width : 600px; display: inline-block;margin: 20px; " class="alert alert-dismissible alert-light">
+                <h1>Departement</h1>
+                           <a class="btn btn-success" asp-area="" asp-controller="Departemments" asp-action="Create">Add New  </a>
+
+                    <a class="btn btn-primary" asp-area="" asp-controller="Departemments" asp-action="Index">View List  </a>
+            </div>
+}

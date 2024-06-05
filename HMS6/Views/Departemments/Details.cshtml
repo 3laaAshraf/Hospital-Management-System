@@ -1,0 +1,71 @@
+﻿@model HMS6.Models.Departemment
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div class="alert alert-dismissible alert-primary">
+    <h4>@Html.DisplayFor(model => model.DepartementName)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Id :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DepartementId)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Doctors :
+        </dt>
+        <dd class = "col-sm-10">
+        @foreach (var doctor in Model.Doctors)
+        {    
+            <th>
+               { @Html.DisplayFor(modelDoctor => doctor.DoctorName) }  
+            </th>
+        } </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Nurses :
+        </dt>
+        <dd class = "col-sm-10">
+        @foreach (var nurse in Model.Nurses)
+        {    
+            <th>
+               { @Html.DisplayFor(modelNurses => nurse.Name) }  
+            </th>
+        } </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Patients :
+        </dt>
+        <dd class = "col-sm-10">
+        @foreach (var patient in Model.Patients)
+        {    
+            <th>
+               { @Html.DisplayFor(modelPatient => patient.PatientName) }  
+            </th>
+        } </dd>
+        <hr />
+
+        <dt class = "col-sm-2">
+            Equpiments :
+        </dt>
+        <dd class = "col-sm-10">
+            @foreach (var equipment in Model.MedicalEquipments)
+            {    
+                <th>
+                   { @Html.DisplayFor(modelEquipment => equipment.EquipmentName) }  
+                </th>
+            } </dd>
+
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.DepartementId">Edit</a> |
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>

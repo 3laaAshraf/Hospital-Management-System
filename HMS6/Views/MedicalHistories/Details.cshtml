@@ -1,0 +1,47 @@
+﻿@model HMS6.Models.MedicalHistory
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div class="alert alert-dismissible alert-primary">
+    <h4>Medical History <p>@Html.DisplayFor(model => model.Patient.PatientName)</p></h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Date Of Visit :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateOfVisitPatToDoc)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            iagnosis :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Diagnosis)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+            Follow-Up Date :
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FollowUpDate)
+        </dd>
+        <hr />
+        <dt class = "col-sm-2">
+           Doctor :
+        </dt>
+        <dd class = "col-sm-10">
+            {@Html.DisplayFor(model => model.Doctor.DoctorId)} @Html.DisplayFor(model => model.Doctor.DoctorName)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.MedicalHistoryId">Edit</a> |
+    <a class="btn btn-primary" asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HMS6.Models.MedicalEquipment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<partial name="_Notification"/>
+<h1>Medical Equipment List</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Equipment
+            </th>
+            
+            <th>
+                Departement
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentName)
+            </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.Dep.DepartementName)
+                </td>
+            <td>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.EquipmentId">Edit</a> 
+                    
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
